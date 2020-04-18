@@ -20,7 +20,7 @@ func getCurrent() (string, error) {
 	cmd := exec.Command("bash", "-c", "xrandr --verbose | grep -i brightness")
 	out, err := cmd.Output()
 	if err != nil {
-		return "", nil
+		return "", err
 	}
 	curr := strings.Split(string(out), ":")[1]
 	return strings.TrimSpace(curr), nil
